@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GPTC Helpdesk Bot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card chatcard">
+      <div class="topbar">
+        <div>
+          <h2 class="title2">GPTC Helpdesk</h2>
+          <p class="subtitle2">Staff-mode bot • College Q&A</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn ghost" id="clearBtn">Clear</button>
+          <button class="btn danger" id="logoutBtn">Logout</button>
+        </div>
+      </div>
+
+      <div id="chat" class="chat"></div>
+
+      <form id="chatForm" class="chatForm">
+        <input id="msg" class="input" placeholder="Ask something about college…" autocomplete="off" required />
+        <button class="btn" type="submit">Send</button>
+      </form>
+
+      <p class="tiny">
+        Tip: “principal”, “office time”, “admission”, “departments”, “contact” പോലുള്ള keywords try ചെയ്യൂ.
+      </p>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="bot.js"></script>
+</body>
+</html>

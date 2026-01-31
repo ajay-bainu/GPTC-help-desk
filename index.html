@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GPTC Portal - Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1 class="title">GPTC Portal</h1>
+      <p class="subtitle">Login ചെയ്ത് College Helpdesk Bot-നെ chat ചെയ്യൂ.</p>
+
+      <form id="loginForm" class="form">
+        <label class="label">Student ID / Staff ID</label>
+        <input class="input" id="userId" placeholder="ഉദാ: 1234" required />
+
+        <label class="label">Password</label>
+        <input class="input" id="password" type="password" placeholder="••••••••" required />
+
+        <button class="btn" type="submit">Login</button>
+
+        <p class="hint">
+          Demo Login: <b>id:</b> 1234 &nbsp; <b>pass:</b> 1234
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // ⚠️ Demo-only auth (minor project)
+    const users = [
+      { id: "1234", pass: "1234", name: "Machu" },
+      { id: "1001", pass: "1001", name: "Guest" }
+    ];
+
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const id = document.getElementById("userId").value.trim();
+      const pass = document.getElementById("password").value.trim();
+
+      const ok = users.find(u => u.id === id && u.pass === pass);
+      if (!ok) {
+        alert("Wrong ID / Password 😅");
+        return;
+      }
+
+      localStorage.setItem("session_user", JSON.stringify(ok));
+      window.location.href = "chat.html";
+    });
+  </script>
+</body>
+</html>
